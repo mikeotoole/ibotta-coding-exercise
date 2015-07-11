@@ -9,3 +9,17 @@ FactoryGirl.define do
     expiration "2014-02-06 11:08:57"
   end
 end
+
+# == Schema Information
+#
+# Table name: offers
+#
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  description :text
+#  terms       :text
+#  image_url   :string(255)
+#  expiration  :datetime
+#  created_at  :datetime
+#  updated_at  :datetime
+#

@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140522143714) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "customers", force: true do |t|
     t.string   "customer_id"
     t.string   "zip"
@@ -22,7 +25,7 @@ ActiveRecord::Schema.define(version: 20140522143714) do
     t.datetime "updated_at"
   end
 
-  add_index "customers", ["customer_id"], name: "index_customers_on_customer_id", unique: true
+  add_index "customers", ["customer_id"], name: "index_customers_on_customer_id", unique: true, using: :btree
 
   create_table "events", force: true do |t|
     t.integer  "store_id"
@@ -34,8 +37,8 @@ ActiveRecord::Schema.define(version: 20140522143714) do
     t.datetime "updated_at"
   end
 
-  add_index "events", ["customer_id"], name: "index_events_on_customer_id"
-  add_index "events", ["store_id"], name: "index_events_on_store_id"
+  add_index "events", ["customer_id"], name: "index_events_on_customer_id", using: :btree
+  add_index "events", ["store_id"], name: "index_events_on_store_id", using: :btree
 
   create_table "offers", force: true do |t|
     t.string   "name"
@@ -65,7 +68,7 @@ ActiveRecord::Schema.define(version: 20140522143714) do
     t.datetime "updated_at"
   end
 
-  add_index "stores", ["retailer_id"], name: "index_stores_on_retailer_id"
+  add_index "stores", ["retailer_id"], name: "index_stores_on_retailer_id", using: :btree
 
   create_table "tasks", force: true do |t|
     t.integer  "offer_id"
@@ -78,6 +81,6 @@ ActiveRecord::Schema.define(version: 20140522143714) do
     t.datetime "updated_at"
   end
 
-  add_index "tasks", ["offer_id"], name: "index_tasks_on_offer_id"
+  add_index "tasks", ["offer_id"], name: "index_tasks_on_offer_id", using: :btree
 
 end
