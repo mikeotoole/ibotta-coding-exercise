@@ -45,7 +45,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'pry-rails'
   gem 'pry-rescue'
-  gem 'rspec-rails', '>= 3.0.0.beta2'
+  gem 'rspec-rails'
 end
 
 group :test do
@@ -53,6 +53,6 @@ group :test do
   gem 'database_cleaner'
   gem 'faker'
   gem 'launchy'
-  gem 'selenium-webdriver'
+  gem 'poltergeist'
   gem 'simplecov', require: false
 end
