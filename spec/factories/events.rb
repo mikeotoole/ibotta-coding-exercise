@@ -2,11 +2,11 @@
 
 FactoryGirl.define do
   factory :event do
-    store nil
-    customer_id "MyString"
-    lat 1.5
-    long 1.5
-    event_at "2014-05-21 16:44:17"
+    store
+    customer_id { FactoryGirl.create(:customer).customer_id }
+    lat 39.5928
+    long(-104.884)
+    event_at '2014-05-21 16:44:17'
   end
 end
 

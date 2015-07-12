@@ -1,0 +1,10 @@
+%h1 Retailers
+
+%table.table.table-bordered
+  %tr
+    %th Retailer
+    %th Total Stores
+  - @retailers.each do |retailer|
+    %tr
+      %td= link_to retailer.name, retailer
+      %td= retailer.stores_count

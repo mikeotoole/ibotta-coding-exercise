@@ -2,10 +2,10 @@
 
 FactoryGirl.define do
   factory :customer do
-    customer_id "MyString"
-    zip "MyString"
-    lat 1.5
-    long 1.5
+    customer_id { SecureRandom.hex(16) }
+    zip '80534'
+    lat 40.3355
+    long(-104.924)
   end
 end
 
