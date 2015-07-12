@@ -6,10 +6,11 @@
     %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'Ibotta Dev20140521'}"}
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['google_api_key']}&libraries=visualization"
     = csrf_meta_tags
   %body
     %header
       = render 'layouts/navigation'
-    %main{:role => "main"}
+    %main{:class => 'container', :role => "main"}
       = render 'layouts/messages'
       = yield

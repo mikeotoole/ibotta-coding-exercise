@@ -1,0 +1,26 @@
+%p#notice= notice
+
+.retailers.show
+  %h1= @retailer.name
+
+  .row
+    .col-md-6
+      #map-canvas{ data: { events: @events_by_store } }
+    .col-md-6
+      %table.table.table-bordered
+        %tr
+          %th Stat
+          %th
+          %th Visits
+        %tr
+          %td Stores
+          %td= @retailer.stores_count
+          %td= @event_stats.count
+        %tr
+          %td Busiest Day of Week
+          %td= @event_stats.busiest_dow
+          %td= @event_stats.busiest_dow_visits
+        %tr
+          %td Busiest Hour of Day
+          %td= @event_stats.busiest_hour
+          %td= @event_stats.busiest_hour_visits

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140522143714) do
+ActiveRecord::Schema.define(version: 20150712182844) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,7 +54,10 @@ ActiveRecord::Schema.define(version: 20140522143714) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "stores_count", default: 0, null: false
   end
+
+  add_index "retailers", ["stores_count"], name: "index_retailers_on_stores_count", using: :btree
 
   create_table "stores", force: true do |t|
     t.integer  "retailer_id"
@@ -66,8 +69,10 @@ ActiveRecord::Schema.define(version: 20140522143714) do
     t.float    "long"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "events_count", default: 0, null: false
   end
 
+  add_index "stores", ["events_count"], name: "index_stores_on_events_count", using: :btree
   add_index "stores", ["retailer_id"], name: "index_stores_on_retailer_id", using: :btree
 
   create_table "tasks", force: true do |t|
